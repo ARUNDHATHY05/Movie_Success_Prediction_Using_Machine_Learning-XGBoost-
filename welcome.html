@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Movie Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1c1c2e, #3b3b58);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #28a745;
+            text-shadow: 0 0 20px rgba(40, 167, 69, 0.7), 0 0 30px rgba(40, 167, 69, 0.5);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        p {
+            font-size: 1.5em;
+            text-align: center;
+            margin: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 0 15px rgba(40, 167, 69, 0.5);
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        /* Background Animation */
+        .background-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.5) 50%);
+            animation: animateBackground 15s linear infinite;
+        }
+
+        @keyframes animateBackground {
+            0% {
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+            50% {
+                background-color: rgba(40, 167, 69, 0.6);
+            }
+            100% {
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Particle Animation */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(40, 167, 69, 0.8);
+            opacity: 0.5;
+            animation: particleAnimation 10s infinite;
+        }
+
+        @keyframes particleAnimation {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(calc(100vw - 50px), calc(100vh - 50px)) scale(1.5); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        /* Generate particles dynamically */
+        @keyframes createParticles {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(40, 167, 69, 0.3);
+            filter: blur(60px);
+            animation: pulse 10s infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="background-animation"></div>
+
+<!-- Dynamic Particle Generation -->
+<script>
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        const size = Math.random() * 15 + 5;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.top = Math.random() * 100 + 'vh';
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDelay = Math.random() * 10 + 's';
+        document.body.appendChild(particle);
+    }
+</script>
+
+<div class="glow" style="top: 10%; left: 10%;"></div>
+<div class="glow" style="top: 70%; left: 60%;"></div>
+
+<h1>Welcome to Movie Prediction</h1>
+<p>Click the button below to start predicting the success of your movie!</p>
+<a href="/predict_form">
+    <button>Start Prediction</button>
+</a>
+
+</body>
+</html>

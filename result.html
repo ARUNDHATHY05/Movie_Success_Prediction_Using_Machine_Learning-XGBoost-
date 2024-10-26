@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1c1c2e, #3b3b58);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #28a745;
+            text-shadow: 0 0 10px rgba(40, 167, 69, 0.7);
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #f4f4f4;
+        }
+
+        strong {
+            color: #28a745;
+        }
+
+        h3 {
+            font-size: 2em;
+            margin-top: 30px;
+            color: #28a745;
+            text-shadow: 0 0 10px rgba(40, 167, 69, 0.7);
+        }
+
+        /* Animation for the container */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Prediction Result</h2>
+    <p><strong>Director:</strong> {{ director_name }}</p>
+    <p><strong>Actor 1:</strong> {{ actor_1_name }}</p>
+    <p><strong>Actor 2:</strong> {{ actor_2_name }}</p>
+    <p><strong>Actor 3:</strong> {{ actor_3_name }}</p>
+    <p><strong>Gross:</strong> {{ gross }}</p>
+    <p><strong>IMDb Rating:</strong> {{ imdb_score }}</p>
+    <h3>Prediction: {{ prediction }}</h3>
+</div>
+
+</body>
+</html>
